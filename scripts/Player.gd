@@ -46,9 +46,11 @@ func move(dir):
 		var object = ray.get_collider()
 		match object.get_meta("Item"):
 			"Torch":
-				print("Here")
 				pickup_torch()
 				object.queue_free()
+				return
+			"Wall":
+				update_alert_label("[center]There's a wall there[/center]")
 				return
 
 func update_light():
