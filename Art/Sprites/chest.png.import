@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgwpgvmuyqon8"
-path="res://.godot/imported/lock.png-12c36b1b3097f670ef5decaef8556d48.ctex"
+uid="uid://cp73ikxogkax7"
+path="res://.godot/imported/chest.png-949ecd1af739649ef46480ba5e5e0d08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/lock.png"
-dest_files=["res://.godot/imported/lock.png-12c36b1b3097f670ef5decaef8556d48.ctex"]
+source_file="res://Art/Sprites/chest.png"
+dest_files=["res://.godot/imported/chest.png-949ecd1af739649ef46480ba5e5e0d08.ctex"]
 
 [params]
 

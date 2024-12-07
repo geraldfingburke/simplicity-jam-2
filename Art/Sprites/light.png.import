@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://viffxcecpaxr"
-path="res://.godot/imported/finalboss.png-ce2a9c7a2f095159ab9a98d6052f8ba3.ctex"
+uid="uid://dax6rpdrjx14g"
+path="res://.godot/imported/light.png-d4200790e3ed5edf44ba20a972b77a2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/finalboss.png"
-dest_files=["res://.godot/imported/finalboss.png-ce2a9c7a2f095159ab9a98d6052f8ba3.ctex"]
+source_file="res://Art/Sprites/light.png"
+dest_files=["res://.godot/imported/light.png-d4200790e3ed5edf44ba20a972b77a2d.ctex"]
 
 [params]
 

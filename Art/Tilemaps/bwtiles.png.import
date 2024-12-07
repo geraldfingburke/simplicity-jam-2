@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wr0bd0m5sw6v"
-path="res://.godot/imported/secretboss.png-435a765579d8a0d776bcf136e5eb157d.ctex"
+uid="uid://cnraomi7x167e"
+path="res://.godot/imported/bwtiles.png-e2d521e5d2f39fe54823bf0e2fae6fb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/secretboss.png"
-dest_files=["res://.godot/imported/secretboss.png-435a765579d8a0d776bcf136e5eb157d.ctex"]
+source_file="res://Art/Tilemaps/bwtiles.png"
+dest_files=["res://.godot/imported/bwtiles.png-e2d521e5d2f39fe54823bf0e2fae6fb9.ctex"]
 
 [params]
 

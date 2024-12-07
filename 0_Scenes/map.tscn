@@ -1,21 +1,21 @@
 [gd_scene load_steps=34 format=3 uid="uid://c83o63j72gte0"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="3_l0so4"]
-[ext_resource type="Texture2D" uid="uid://cnraomi7x167e" path="res://Art/bwtiles.png" id="3_pl42y"]
-[ext_resource type="Texture2D" uid="uid://cp73ikxogkax7" path="res://Art/chest.png" id="3_vl3ic"]
-[ext_resource type="Texture2D" uid="uid://cukqeh0adsofp" path="res://Art/squid-enemy.png" id="4_kr3ds"]
-[ext_resource type="Texture2D" uid="uid://cw37t7cllnkm0" path="res://Art/player.png" id="4_ks4j5"]
-[ext_resource type="Texture2D" uid="uid://wr0bd0m5sw6v" path="res://Art/secretboss.png" id="5_gnsax"]
-[ext_resource type="Texture2D" uid="uid://btomauma08k8o" path="res://Art/slime.png" id="6_s8bae"]
-[ext_resource type="Texture2D" uid="uid://bdhq6yybuo6cp" path="res://Art/torch.png" id="7_ahr81"]
-[ext_resource type="Shader" path="res://text.gdshader" id="8_hls2n"]
-[ext_resource type="Texture2D" uid="uid://dgwpgvmuyqon8" path="res://Art/lock.png" id="8_vasex"]
-[ext_resource type="Texture2D" uid="uid://cdce0noihhxop" path="res://Art/key.png" id="9_ucyg8"]
-[ext_resource type="Texture2D" uid="uid://viffxcecpaxr" path="res://Art/finalboss.png" id="10_xpv8v"]
-[ext_resource type="Script" path="res://torch.gd" id="12_8dx61"]
-[ext_resource type="Texture2D" uid="uid://dax6rpdrjx14g" path="res://Art/light.png" id="13_co5f4"]
-[ext_resource type="Script" path="res://modulate.gd" id="14_1c1rw"]
-[ext_resource type="FontFile" uid="uid://cnhxesboq1bje" path="res://dogica.ttf" id="15_iv43c"]
+[ext_resource type="Texture2D" uid="uid://cnraomi7x167e" path="res://Art/Tilemaps/bwtiles.png" id="1_8by5w"]
+[ext_resource type="Texture2D" uid="uid://cp73ikxogkax7" path="res://Art/Sprites/chest.png" id="2_r38os"]
+[ext_resource type="Script" path="res://Scripts/modulate.gd" id="3_fmyhy"]
+[ext_resource type="Texture2D" uid="uid://cukqeh0adsofp" path="res://Art/Sprites/squid-enemy.png" id="4_10mu1"]
+[ext_resource type="Texture2D" uid="uid://wr0bd0m5sw6v" path="res://Art/Sprites/secretboss.png" id="5_v5lr6"]
+[ext_resource type="Texture2D" uid="uid://btomauma08k8o" path="res://Art/Sprites/slime.png" id="6_4ooeb"]
+[ext_resource type="Texture2D" uid="uid://bdhq6yybuo6cp" path="res://Art/Sprites/torch.png" id="7_s8o07"]
+[ext_resource type="Texture2D" uid="uid://dgwpgvmuyqon8" path="res://Art/Sprites/lock.png" id="8_e3p4o"]
+[ext_resource type="Texture2D" uid="uid://cdce0noihhxop" path="res://Art/Sprites/key.png" id="9_wmg7s"]
+[ext_resource type="Texture2D" uid="uid://viffxcecpaxr" path="res://Art/Sprites/finalboss.png" id="10_ucxh1"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="11_yyol0"]
+[ext_resource type="Texture2D" uid="uid://cw37t7cllnkm0" path="res://Art/Sprites/player.png" id="12_i4he7"]
+[ext_resource type="Script" path="res://Scripts/torch.gd" id="13_ceye7"]
+[ext_resource type="Texture2D" uid="uid://dax6rpdrjx14g" path="res://Art/Sprites/light.png" id="14_sf3o2"]
+[ext_resource type="FontFile" uid="uid://cnhxesboq1bje" path="res://Art/Fonts/dogica.ttf" id="15_vkhmi"]
+[ext_resource type="Shader" path="res://Shaders/text.gdshader" id="16_gliju"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hnjgs"]
 load_path = "res://.godot/imported/dungeon-tileset.png-adca0c9698cce16e56a24295004ec9ca.ctex"
@@ -159,7 +159,7 @@ texture = SubResource("CompressedTexture2D_wqdji")
 2:16/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_625e6"]
-texture = ExtResource("3_pl42y")
+texture = ExtResource("1_8by5w")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -187,11 +187,11 @@ sources/3 = SubResource("TileSetAtlasSource_625e6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku6ly"]
 
 [sub_resource type="Theme" id="Theme_g5d2j"]
-default_font = ExtResource("15_iv43c")
+default_font = ExtResource("15_vkhmi")
 default_font_size = 8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b8ymu"]
-shader = ExtResource("8_hls2n")
+shader = ExtResource("16_gliju")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_xugl4"]
 
@@ -219,8 +219,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -236,8 +236,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest17"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -253,8 +253,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest18"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -270,8 +270,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest20"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -287,8 +287,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest21"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -304,8 +304,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest22"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -321,8 +321,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest23"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -338,8 +338,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest24"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -355,8 +355,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest25"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -372,8 +372,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest26"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -389,8 +389,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest27"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -406,8 +406,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest28"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -423,8 +423,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest29"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -440,8 +440,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest30"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -457,8 +457,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest31"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -474,8 +474,8 @@ metadata/Item = &"Chest"
 
 [node name="ChestSprite" type="Sprite2D" parent="Chests/Chest19"]
 texture_filter = 1
-texture = ExtResource("3_vl3ic")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("2_r38os")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
@@ -497,8 +497,8 @@ shape = SubResource("RectangleShape2D_s3r37")
 
 [node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle"]
 texture_filter = 1
-texture = ExtResource("4_kr3ds")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("4_10mu1")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.5
 speed = 0.35
@@ -513,8 +513,8 @@ shape = SubResource("RectangleShape2D_s3r37")
 
 [node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle2"]
 texture_filter = 1
-texture = ExtResource("4_kr3ds")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("4_10mu1")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.5
 speed = 0.35
@@ -529,8 +529,8 @@ shape = SubResource("RectangleShape2D_s3r37")
 
 [node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle3"]
 texture_filter = 1
-texture = ExtResource("4_kr3ds")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("4_10mu1")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.5
 speed = 0.35
@@ -545,8 +545,8 @@ shape = SubResource("RectangleShape2D_s3r37")
 
 [node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle4"]
 texture_filter = 1
-texture = ExtResource("4_kr3ds")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("4_10mu1")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.5
 speed = 0.35
@@ -554,7 +554,7 @@ speed = 0.35
 [node name="SecretBoss" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-216, -296)
-texture = ExtResource("5_gnsax")
+texture = ExtResource("5_v5lr6")
 
 [node name="Slimes" type="Node" parent="."]
 
@@ -564,8 +564,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -580,8 +580,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime21"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -596,8 +596,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime22"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -612,8 +612,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime23"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -628,8 +628,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime24"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -644,8 +644,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime25"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -660,8 +660,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime26"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -676,8 +676,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime27"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -692,8 +692,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime28"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -708,8 +708,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime29"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -724,8 +724,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime30"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -740,8 +740,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime31"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -756,8 +756,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime32"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -772,8 +772,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime33"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -788,8 +788,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime34"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -804,8 +804,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime35"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -820,8 +820,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime36"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -836,8 +836,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime37"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -852,8 +852,8 @@ metadata/Item = &"Slime"
 
 [node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime38"]
 texture_filter = 1
-texture = ExtResource("6_s8bae")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("6_4ooeb")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.5
 max_diameter = 1.0
 speed = 0.2
@@ -870,8 +870,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -886,8 +886,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch11"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -902,8 +902,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch12"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -918,8 +918,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch13"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -934,8 +934,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch14"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -950,8 +950,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch15"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -966,8 +966,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch16"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -982,8 +982,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch17"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -998,8 +998,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch18"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -1014,8 +1014,8 @@ metadata/Item = &"Torch"
 
 [node name="TorchSprite" type="Sprite2D" parent="Torches/Torch19"]
 texture_filter = 1
-texture = ExtResource("7_ahr81")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("7_s8o07")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.95
 max_diameter = 1.05
 speed = 0.75
@@ -1036,8 +1036,8 @@ shape = SubResource("RectangleShape2D_peyxy")
 
 [node name="LockSprite" type="Sprite2D" parent="Locks/Lock"]
 texture_filter = 1
-texture = ExtResource("8_vasex")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("8_e3p4o")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.1
 speed = 0.15
@@ -1052,8 +1052,8 @@ shape = SubResource("RectangleShape2D_peyxy")
 
 [node name="LockSprite" type="Sprite2D" parent="Locks/Lock5"]
 texture_filter = 1
-texture = ExtResource("8_vasex")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("8_e3p4o")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.1
 speed = 0.15
@@ -1068,8 +1068,8 @@ shape = SubResource("RectangleShape2D_peyxy")
 
 [node name="LockSprite" type="Sprite2D" parent="Locks/Lock6"]
 texture_filter = 1
-texture = ExtResource("8_vasex")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("8_e3p4o")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.1
 speed = 0.15
@@ -1084,8 +1084,8 @@ shape = SubResource("RectangleShape2D_peyxy")
 
 [node name="LockSprite" type="Sprite2D" parent="Locks/Lock7"]
 texture_filter = 1
-texture = ExtResource("8_vasex")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("8_e3p4o")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.1
 speed = 0.15
@@ -1098,8 +1098,8 @@ metadata/Item = &"Key"
 
 [node name="KeySprite" type="Sprite2D" parent="Keys/Key"]
 texture_filter = 1
-texture = ExtResource("9_ucyg8")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("9_wmg7s")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.75
 max_diameter = 1.25
 speed = 1.1
@@ -1114,8 +1114,8 @@ metadata/Item = &"Key"
 
 [node name="KeySprite" type="Sprite2D" parent="Keys/Key5"]
 texture_filter = 1
-texture = ExtResource("9_ucyg8")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("9_wmg7s")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.75
 max_diameter = 1.25
 speed = 1.1
@@ -1130,8 +1130,8 @@ metadata/Item = &"Key"
 
 [node name="KeySprite" type="Sprite2D" parent="Keys/Key6"]
 texture_filter = 1
-texture = ExtResource("9_ucyg8")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("9_wmg7s")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.75
 max_diameter = 1.25
 speed = 1.1
@@ -1146,8 +1146,8 @@ metadata/Item = &"Key"
 
 [node name="KeySprite" type="Sprite2D" parent="Keys/Key7"]
 texture_filter = 1
-texture = ExtResource("9_ucyg8")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("9_wmg7s")
+script = ExtResource("3_fmyhy")
 min_diameter = 0.75
 max_diameter = 1.25
 speed = 1.1
@@ -1162,8 +1162,8 @@ metadata/Item = &"Priest"
 
 [node name="PriestSprite" type="Sprite2D" parent="Priest"]
 texture_filter = 1
-texture = ExtResource("10_xpv8v")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("10_ucxh1")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.5
 speed = 1.2
@@ -1174,12 +1174,12 @@ shape = SubResource("RectangleShape2D_yuyek")
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(56, 24)
-script = ExtResource("3_l0so4")
+script = ExtResource("11_yyol0")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 texture_filter = 1
-texture = ExtResource("4_ks4j5")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("12_i4he7")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.1
 speed = 0.5
@@ -1197,11 +1197,11 @@ collide_with_areas = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Player"]
 scale = Vector2(2, 2)
-script = ExtResource("12_8dx61")
+script = ExtResource("13_ceye7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/CanvasModulate"]
-texture = ExtResource("13_co5f4")
-script = ExtResource("14_1c1rw")
+texture = ExtResource("14_sf3o2")
+script = ExtResource("3_fmyhy")
 min_diameter = 1.0
 max_diameter = 1.1
 speed = 0.25

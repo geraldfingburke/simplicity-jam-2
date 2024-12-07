@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp73ikxogkax7"
-path="res://.godot/imported/chest.png-270af27d1bf08f0a3d92df79ccdda279.ctex"
+uid="uid://bdhq6yybuo6cp"
+path="res://.godot/imported/torch.png-f27cf0aa573116dfb165be7e081d04de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/chest.png"
-dest_files=["res://.godot/imported/chest.png-270af27d1bf08f0a3d92df79ccdda279.ctex"]
+source_file="res://Art/Sprites/torch.png"
+dest_files=["res://.godot/imported/torch.png-f27cf0aa573116dfb165be7e081d04de.ctex"]
 
 [params]
 

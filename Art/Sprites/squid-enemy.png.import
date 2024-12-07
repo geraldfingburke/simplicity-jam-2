@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdce0noihhxop"
-path="res://.godot/imported/key.png-59acf0767578205e5bbf56aa94b60c24.ctex"
+uid="uid://cukqeh0adsofp"
+path="res://.godot/imported/squid-enemy.png-2458ce4d2a5047efcf113c0093713ae6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/key.png"
-dest_files=["res://.godot/imported/key.png-59acf0767578205e5bbf56aa94b60c24.ctex"]
+source_file="res://Art/Sprites/squid-enemy.png"
+dest_files=["res://.godot/imported/squid-enemy.png-2458ce4d2a5047efcf113c0093713ae6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bujn5mq7dv6at"
-path="res://.godot/imported/allen_light_mask.jpg-02164f1b4a6db1806f2a9ccd53ef13f1.ctex"
+uid="uid://btomauma08k8o"
+path="res://.godot/imported/slime.png-65e3875af71e9ab78cdc07835f2953d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/allen_light_mask.jpg"
-dest_files=["res://.godot/imported/allen_light_mask.jpg-02164f1b4a6db1806f2a9ccd53ef13f1.ctex"]
+source_file="res://Art/Sprites/slime.png"
+dest_files=["res://.godot/imported/slime.png-65e3875af71e9ab78cdc07835f2953d6.ctex"]
 
 [params]
 
