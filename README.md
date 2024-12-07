@@ -1,7 +1,7 @@
 # The Depths
 
 ## The Jam
-I put this game together for the Simplicity Jam #2 hosted [here]("https://itch.io/jam/simplicity-jam-2")
+I put this game together for the Simplicity Jam #2 hosted [here](https://itch.io/jam/simplicity-jam-2)
 
 The theme was Light and Shadow and there were a number of optional limitations
 
@@ -17,4 +17,4 @@ After this jam, I have a hard time seeing myself use any other engine any time s
 
 ## The Game
 
-[Here is a link to the game on itch.io]("https://gerald-burke.itch.io/the-depths")
+[Here is a link to the game on itch.io](https://gerald-burke.itch.io/the-depths)
