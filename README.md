@@ -14,3 +14,7 @@ While the game is completable without being able to see beyond your character, i
 I opted to use Godot because it's lightweight and I've been writing a lot of Python recently anyways
 
 After this jam, I have a hard time seeing myself use any other engine any time soon
+
+## The Game
+
+[Here is a link to the game on itch.io]("https://gerald-burke.itch.io/the-depths")
