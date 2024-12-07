@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c83o63j72gte0"]
+[gd_scene load_steps=38 format=3 uid="uid://c83o63j72gte0"]
 
 [ext_resource type="Texture2D" uid="uid://cnraomi7x167e" path="res://Art/Tilemaps/bwtiles.png" id="1_8by5w"]
 [ext_resource type="Texture2D" uid="uid://cp73ikxogkax7" path="res://Art/Sprites/chest.png" id="2_r38os"]
@@ -195,6 +195,8 @@ default_font_size = 8
 shader = ExtResource("16_gliju")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_xugl4"]
+
+[sub_resource type="Theme" id="Theme_lsuae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlgpb"]
 
@@ -1238,6 +1240,51 @@ offset_bottom = -15.0
 scale = Vector2(0.3, 0.3)
 bbcode_enabled = true
 fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="GameOverScreen" type="CanvasGroup" parent="Player"]
+visible = false
+position = Vector2(-56, -24)
+
+[node name="Background" type="Sprite2D" parent="Player/GameOverScreen"]
+position = Vector2(223, 110.5)
+scale = Vector2(20.5, 13.2812)
+texture = ExtResource("1_8by5w")
+
+[node name="Control" type="Control" parent="Player/GameOverScreen"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 15.0
+offset_top = -4.0
+offset_right = 1735.0
+offset_bottom = 836.0
+scale = Vector2(0.1, 0.1)
+
+[node name="GameOverText" type="RichTextLabel" parent="Player/GameOverScreen/Control"]
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 840.0
+offset_bottom = 430.0
+theme = SubResource("Theme_lsuae")
+theme_override_fonts/normal_font = ExtResource("15_vkhmi")
+text = "You were killed in the depths
+Stats
+Slimes Killed: 3
+Tentacles Killed: 1
+Priest Killed: No
+Chests Opened: 1
+Torches Collected: 2
+Keys Collected: 1
+Locks Opened: 0
+Secret Found: No
+
+Bonuses
+
+
+Final Score: 112
+Take a screenshot and share in the comments!
+Thank you for playing! Press 'Space' to play again!"
 scroll_active = false
 autowrap_mode = 0
 

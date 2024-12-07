@@ -24,6 +24,7 @@ var inputs = {"right" : Vector2.RIGHT, "left" : Vector2.LEFT, "up" : Vector2.UP,
 var move_speed = 3
 var is_moving = false
 var is_game_over = false
+var stats_string = ""
 
 var is_lit = false
 
@@ -34,6 +35,8 @@ var rng = RandomNumberGenerator.new()
 @onready var stats_label = $Control/StatsLabel
 @onready var alert_label = $Control/AlertLabel
 @onready var sfx = $SFX
+@onready var game_over_screen = $GameOverScreen
+@onready var game_over_text = $GameOverScreen/Control/GameOverText
 var hit_fx = load("res://Sound/FX/hit.wav")
 var open_chest_fx = load("res://Sound/FX/openChest.wav")
 var pickup_key_fx = load("res://Sound/FX/pickupKey.wav")
@@ -52,7 +55,8 @@ func _unhandled_input(event):
 	if is_moving:
 		return
 	elif is_game_over:
-		pass
+		if event.is_action_released("space"):
+			get_tree().reload_current_scene()
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
@@ -105,6 +109,7 @@ func move(dir):
 				object.queue_free()
 				update_stats_label()
 				priest_killed = 1
+				game_over("victory")
 				return
 			"Chest":
 				play_sfx(open_chest_fx)
@@ -150,6 +155,8 @@ func move(dir):
 			"Gerald":
 				play_sfx(gerald_fx)
 				secrets_found += 1
+				object.queue_free()
+				game_over("secret")
 				return
 
 func update_light():
@@ -195,15 +202,64 @@ func battle(enemy_level):
 		game_over("death")
 
 func game_over(condition):
-	match condition:
-		"death":
-			pass
-		"victory":
-			pass
-		"secret":
-			pass
-	get_tree().reload_current_scene()
+	is_game_over = true
+	game_over_screen.visible = true
+	game_over_text.text = build_stats_string(condition)
 
 func play_sfx(sound):
 	sfx.stream = sound
 	sfx.play()
+
+func build_stats_string(condition):
+	var slime_slayer = 0
+	var tentacle_tickler = 0
+	var priest_ender = 0
+	var treasure_charlie = 0
+	var torch_hoarder = 0
+	var key_master = 0
+	var gate_keeper = 0
+	
+	match condition:
+		"death":
+			stats_string += "You were killed in the depths\n\n"
+		"victory":
+			stats_string += "You defeated the Priest and escaped with your life\n\n"
+		"secret":
+			stats_string += "You found the developer, thank you for playing\n\n"
+	
+	stats_string += "Stats\n\n"
+	stats_string += "Slimes Killed: %s\n" % slimes_killed
+	stats_string += "Tentacles Killed: %s\n" % tentacles_killed
+	stats_string += "Priest Killed: Yes\n" if priest_killed == 1 else "Priest Killed: No\n"
+	stats_string += "Chests Opened: %s\n" % chests_collected
+	stats_string += "Torches Collected: %s\n" % torches_collected
+	stats_string += "Keys Collected: %s\n" % keys_collected
+	stats_string += "Locks Opened: %s\n" % locks_unlocked
+	stats_string += "Secret Found: Yes\n" if secrets_found == 1 else "Secret Found: No\n"
+	stats_string += "\n\nBonuses\n\n"
+	if slimes_killed == 19:
+		stats_string += "Slime Slayer "
+		slime_slayer = 50
+	if tentacles_killed == 4:
+		stats_string += "Tentacle Tickler "
+		tentacle_tickler = 50
+	if priest_killed == 1:
+		stats_string += "Priest Ender "
+		priest_ender = 50
+	if chests_collected == 16:
+		stats_string += "Treasure Charlie "
+		treasure_charlie = 50
+	if torches_collected == 10:
+		stats_string += "Torch Hoarder "
+		torch_hoarder = 50
+	if keys_collected == 4:
+		stats_string += "Key Master "
+		key_master = 50
+	if locks_unlocked == 4:
+		stats_string += "Gate Keeper"
+		gate_keeper = 50
+	var score = (slimes_killed * 10) + (tentacles_killed * 50) + (priest_killed * 100) + (chests_collected * 5) + torches_collected + (keys_collected * 25) + (locks_unlocked * 25) + (secrets_found * 200) + slime_slayer + tentacle_tickler + priest_ender + treasure_charlie + torch_hoarder + key_master + gate_keeper
+	stats_string += "\n\nFinal Score: %s" % score
+	stats_string += "\n\nTake a screenshot and share in the comments!"
+	stats_string += "\n\nThank you for playing! Press 'Space' to play again!"
+	return stats_string
