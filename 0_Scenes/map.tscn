@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c83o63j72gte0"]
+[gd_scene load_steps=37 format=3 uid="uid://c83o63j72gte0"]
 
 [ext_resource type="Texture2D" uid="uid://cnraomi7x167e" path="res://Art/Tilemaps/bwtiles.png" id="1_8by5w"]
 [ext_resource type="Texture2D" uid="uid://cp73ikxogkax7" path="res://Art/Sprites/chest.png" id="2_r38os"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dax6rpdrjx14g" path="res://Art/Sprites/light.png" id="14_sf3o2"]
 [ext_resource type="FontFile" uid="uid://cnhxesboq1bje" path="res://Art/Fonts/dogica.ttf" id="15_vkhmi"]
 [ext_resource type="Shader" path="res://Shaders/text.gdshader" id="16_gliju"]
+[ext_resource type="AudioStream" uid="uid://qvokdvv11q5t" path="res://Sound/BGM/CaveIT.wav" id="17_qkujs"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hnjgs"]
 load_path = "res://.godot/imported/dungeon-tileset.png-adca0c9698cce16e56a24295004ec9ca.ctex"
@@ -1240,6 +1241,8 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
+[node name="SFX" type="AudioStreamPlayer2D" parent="Player"]
+
 [node name="Secret" type="Area2D" parent="."]
 position = Vector2(136, -200)
 metadata/Item = &"Secret"
@@ -1270,3 +1273,7 @@ metadata/Item = &"Wall"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SecretRoom"]
 build_mode = 1
 polygon = PackedVector2Array(96, -224, 176, -224, 176, -208, 128, -208, 128, -170, 168, -170, 168, -187, 176, -187, 176, -160, 96, -160)
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_qkujs")
+autoplay = true

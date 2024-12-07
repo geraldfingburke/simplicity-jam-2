@@ -33,6 +33,16 @@ var rng = RandomNumberGenerator.new()
 @onready var torch_sprite = $CanvasModulate/Sprite2D
 @onready var stats_label = $Control/StatsLabel
 @onready var alert_label = $Control/AlertLabel
+@onready var sfx = $SFX
+var hit_fx = load("res://Sound/FX/hit.wav")
+var open_chest_fx = load("res://Sound/FX/openChest.wav")
+var pickup_key_fx = load("res://Sound/FX/pickupKey.wav")
+var pickup_torch_fx = load("res://Sound/FX/pickupTorch.wav")
+var unlock_fx = load("res://Sound/FX/unlock.wav")
+var secret_fx = load("res://Sound/FX/secret.wav")
+var gerald_fx = load("res://Sound/FX/Wilhelm_Scream.ogg")
+var wall_fx = load("res://Sound/FX/wall.wav")
+var step_fx = load("res://Sound/FX/step.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +65,7 @@ func move(dir):
 		var tween = create_tween()
 		tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/move_speed).set_trans(Tween.TRANS_SINE)
 		is_moving = true
+		play_sfx(step_fx)
 		await tween.finished
 		is_moving = false
 		update_light()
@@ -64,6 +75,7 @@ func move(dir):
 		match object.get_meta("Item"):
 			"Torch":
 				pickup_torch()
+				play_sfx(pickup_torch_fx)
 				object.queue_free()
 				update_alert_label("[center]You found a torch[/center]")
 				torches_collected += 1
@@ -71,26 +83,31 @@ func move(dir):
 			"Wall":
 				update_alert_label("[center]There's a wall there[/center]")
 				walls_bumped_into += 1
+				play_sfx(wall_fx)
 				return
 			"Slime":
+				play_sfx(hit_fx)
 				battle(5)
 				object.queue_free()
 				update_stats_label() 
 				slimes_killed += 1
 				return
 			"Tentacle":
+				play_sfx(hit_fx)
 				battle(10)
 				object.queue_free()
 				update_stats_label()
 				tentacles_killed += 1
 				return
 			"Priest":
+				play_sfx(hit_fx)
 				battle(20)
 				object.queue_free()
 				update_stats_label()
 				priest_killed = 1
 				return
 			"Chest":
+				play_sfx(open_chest_fx)
 				chests_collected += 1
 				object.queue_free()
 				match rng.randi_range(0,2):
@@ -108,6 +125,7 @@ func move(dir):
 				update_stats_label()
 				return
 			"Key":
+				play_sfx(pickup_key_fx)
 				update_alert_label("[center]You found a key![/center]")
 				keys_collected += 1
 				keys += 1
@@ -115,6 +133,7 @@ func move(dir):
 				update_stats_label()
 				return
 			"Lock":
+				play_sfx(unlock_fx)
 				if keys >= 1:
 					locks_unlocked += 1
 					object.queue_free()
@@ -125,9 +144,12 @@ func move(dir):
 					update_alert_label("[center]You need a key[/center]")
 				return
 			"Secret":
+				play_sfx(secret_fx)
 				position = Vector2(-152,-280)
 				return
 			"Gerald":
+				play_sfx(gerald_fx)
+				secrets_found += 1
 				return
 
 func update_light():
@@ -181,3 +203,7 @@ func game_over(condition):
 		"secret":
 			pass
 	get_tree().reload_current_scene()
+
+func play_sfx(sound):
+	sfx.stream = sound
+	sfx.play()
