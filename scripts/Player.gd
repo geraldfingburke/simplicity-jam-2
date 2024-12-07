@@ -225,17 +225,18 @@ func build_stats_string(condition):
 		"victory":
 			stats_string += "You defeated the Priest and escaped with your life\n\n"
 		"secret":
-			stats_string += "You found the developer, thank you for playing\n\n"
+			stats_string += "You found the developer, thank you for playing!\n\n"
 	
 	stats_string += "Stats\n\n"
-	stats_string += "Slimes Killed: %s\n" % slimes_killed
-	stats_string += "Tentacles Killed: %s\n" % tentacles_killed
-	stats_string += "Priest Killed: Yes\n" if priest_killed == 1 else "Priest Killed: No\n"
-	stats_string += "Chests Opened: %s\n" % chests_collected
-	stats_string += "Torches Collected: %s\n" % torches_collected
-	stats_string += "Keys Collected: %s\n" % keys_collected
-	stats_string += "Locks Opened: %s\n" % locks_unlocked
-	stats_string += "Secret Found: Yes\n" if secrets_found == 1 else "Secret Found: No\n"
+	stats_string += "Slimes Killed: %s\n\n" % slimes_killed
+	stats_string += "Tentacles Killed: %s\n\n" % tentacles_killed
+	stats_string += "Priest Killed: Yes\n\n" if priest_killed == 1 else "Priest Killed: No\n\n"
+	stats_string += "Chests Opened: %s\n\n" % chests_collected
+	stats_string += "Torches Collected: %s\n\n" % torches_collected
+	stats_string += "Keys Collected: %s\n\n" % keys_collected
+	stats_string += "Locks Opened: %s\n\n" % locks_unlocked
+	stats_string += "Secret Found: Yes\n\n" if secrets_found == 1 else "Secret Found: No\n\n"
+	stats_string += "Walls Bumped Into: %s\n\n" % walls_bumped_into
 	stats_string += "\n\nBonuses\n\n"
 	if slimes_killed == 19:
 		stats_string += "Slime Slayer "

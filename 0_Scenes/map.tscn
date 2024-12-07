@@ -1262,6 +1262,7 @@ offset_bottom = 836.0
 scale = Vector2(0.1, 0.1)
 
 [node name="GameOverText" type="RichTextLabel" parent="Player/GameOverScreen/Control"]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 1.0
 offset_right = 840.0
