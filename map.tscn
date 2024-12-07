@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c83o63j72gte0"]
+[gd_scene load_steps=34 format=3 uid="uid://c83o63j72gte0"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="3_l0so4"]
 [ext_resource type="Texture2D" uid="uid://cnraomi7x167e" path="res://Art/bwtiles.png" id="3_pl42y"]
@@ -170,6 +170,20 @@ sources/0 = SubResource("TileSetAtlasSource_clpdd")
 sources/1 = SubResource("TileSetAtlasSource_5xd4c")
 sources/3 = SubResource("TileSetAtlasSource_625e6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w3s3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3r37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjwhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ocq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_peyxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kgf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuyek"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku6ly"]
 
 [sub_resource type="Theme" id="Theme_g5d2j"]
@@ -180,8 +194,6 @@ default_font_size = 8
 shader = ExtResource("8_hls2n")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_xugl4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ocq"]
 
 [node name="Game" type="Node2D"]
 
@@ -199,178 +211,345 @@ metadata/Item = &"Wall"
 build_mode = 1
 polygon = PackedVector2Array(-256, -352, 416, -352, 416, 208, -256, 208, -255, -328, -224, -304, -224, -299, -237, -291, -224, -240, -224, -32, -64, -32, -64, -64, -96, -64, -96, -96, -32, -96, -32, 32, -48, 32, -48, -16, -224, -16, -224, 160, -16, 160, -16, 80, 16, 80, 16, 32, -16, 32, -16, -96, 112, -96, 112, -48, 96, -48, 96, -32, 48, -32, 48, 0, 32, 0, 32, 48, 80, 48, 80, 0, 64, 0, 64, -16, 96, -16, 96, 80, 128, 80, 128, 96, 0, 96, 0, 160, 208, 160, 208, 96, 144, 96, 144, 80, 176, 80, 176, 32, 192, 32, 192, 80, 240, 80, 240, 176, 272, 176, 272, 112, 304, 112, 304, 176, 368, 176, 368, 32, 304, 32, 304, 96, 272, 96, 272, 64, 208, 64, 208, 16, 176, 16, 176, 0, 384, 0, 384, -64, 192, -64, 192, -16, 176, -16, 176, -48, 128, -48, 128, -80, 224, -80, 224, -112, 256, -112, 256, -80, 352, -80, 352, -192, 256, -192, 256, -128, 240, -128, 240, -208, 384, -208, 384, -320, 240, -320, 240, -240, 352, -240, 352, -288, 272, -288, 272, -272, 336, -272, 336, -256, 256, -256, 256, -304, 368, -304, 368, -224, 224, -224, 224, -128, 192, -128, 192, -224, 208, -224, 208, -304, 48, -304, 48, -224, 80, -224, 80, -112, 16, -112, 16, -160, 32, -160, 32, -288, -80, -288, -80, -160, -16, -160, -16, -112, -96, -112, -96, -240, -222, -240, -219, -261, -145, -266, -141, -316, -218, -319, -256, -339)
 
-[node name="Player" type="Area2D" parent="."]
-position = Vector2(56, 24)
-script = ExtResource("3_l0so4")
+[node name="Chests" type="Node" parent="."]
 
-[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+[node name="Chest" type="Area2D" parent="Chests"]
+position = Vector2(152, -24)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest"]
 texture_filter = 1
-texture = ExtResource("4_ks4j5")
+texture = ExtResource("3_vl3ic")
 script = ExtResource("14_1c1rw")
-min_diameter = 1.0
-max_diameter = 1.1
-speed = 0.5
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(10, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-scale = Vector2(0.75, 0.75)
-shape = SubResource("RectangleShape2D_ku6ly")
-
-[node name="RayCast2D" type="RayCast2D" parent="Player"]
-target_position = Vector2(0, 0)
-collide_with_areas = true
-
-[node name="CanvasModulate" type="CanvasModulate" parent="Player"]
-scale = Vector2(2, 2)
-script = ExtResource("12_8dx61")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/CanvasModulate"]
-texture = ExtResource("13_co5f4")
-script = ExtResource("14_1c1rw")
-min_diameter = 1.0
+min_diameter = 0.9
 max_diameter = 1.1
 speed = 0.25
 
-[node name="Control" type="Control" parent="Player"]
-texture_filter = 1
-layout_mode = 3
-anchors_preset = 0
-offset_right = 22.77
-offset_bottom = 40.0
-theme = SubResource("Theme_g5d2j")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="StatsLabel" type="RichTextLabel" parent="Player/Control"]
-material = SubResource("ShaderMaterial_b8ymu")
-layout_mode = 0
-offset_left = -33.0
-offset_top = 22.0
-offset_right = 199.0
-offset_bottom = 29.0
-scale = Vector2(0.3, 0.3)
-text = "Health: 10 Attack: 1 Light: 0"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_xugl4")]
-
-[node name="AlertLabel" type="RichTextLabel" parent="Player/Control"]
-material = SubResource("ShaderMaterial_b8ymu")
-layout_mode = 0
-offset_left = -33.0
-offset_top = -22.0
-offset_right = 199.0
-offset_bottom = -15.0
-scale = Vector2(0.3, 0.3)
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Chests" type="Node" parent="."]
-
-[node name="Chest" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(152, -24)
-texture = ExtResource("3_vl3ic")
-
-[node name="Chest2" type="Sprite2D" parent="Chests"]
-texture_filter = 1
+[node name="Chest17" type="Area2D" parent="Chests"]
 position = Vector2(120, 56)
-texture = ExtResource("3_vl3ic")
+metadata/Item = &"Chest"
 
-[node name="Chest3" type="Sprite2D" parent="Chests"]
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest17"]
 texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest17"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest18" type="Area2D" parent="Chests"]
 position = Vector2(24, 120)
-texture = ExtResource("3_vl3ic")
+metadata/Item = &"Chest"
 
-[node name="Chest4" type="Sprite2D" parent="Chests"]
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest18"]
 texture_filter = 1
-position = Vector2(24, 136)
 texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
 
-[node name="Chest5" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(344, 152)
-texture = ExtResource("3_vl3ic")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest18"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Chest6" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(344, 136)
-texture = ExtResource("3_vl3ic")
-
-[node name="Chest7" type="Sprite2D" parent="Chests"]
-texture_filter = 1
+[node name="Chest20" type="Area2D" parent="Chests"]
 position = Vector2(344, 120)
-texture = ExtResource("3_vl3ic")
+metadata/Item = &"Chest"
 
-[node name="Chest8" type="Sprite2D" parent="Chests"]
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest20"]
 texture_filter = 1
-position = Vector2(344, -40)
 texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
 
-[node name="Chest9" type="Sprite2D" parent="Chests"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest20"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest21" type="Area2D" parent="Chests"]
+position = Vector2(344, 136)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest21"]
 texture_filter = 1
-position = Vector2(328, -136)
 texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
 
-[node name="Chest10" type="Sprite2D" parent="Chests"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest21"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest22" type="Area2D" parent="Chests"]
+position = Vector2(344, 152)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest22"]
 texture_filter = 1
-position = Vector2(344, -280)
 texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
 
-[node name="Chest11" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(152, -264)
-texture = ExtResource("3_vl3ic")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest22"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Chest12" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(8, -184)
-texture = ExtResource("3_vl3ic")
-
-[node name="Chest13" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(-200, -200)
-texture = ExtResource("3_vl3ic")
-
-[node name="Chest14" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(-136, -56)
-texture = ExtResource("3_vl3ic")
-
-[node name="Chest15" type="Sprite2D" parent="Chests"]
-texture_filter = 1
-position = Vector2(-184, 8)
-texture = ExtResource("3_vl3ic")
-
-[node name="Chest16" type="Sprite2D" parent="Chests"]
-texture_filter = 1
+[node name="Chest23" type="Area2D" parent="Chests"]
 position = Vector2(-200, 120)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest23"]
+texture_filter = 1
 texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest23"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest24" type="Area2D" parent="Chests"]
+position = Vector2(-184, 8)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest24"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest24"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest25" type="Area2D" parent="Chests"]
+position = Vector2(-136, -56)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest25"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest25"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest26" type="Area2D" parent="Chests"]
+position = Vector2(-200, -200)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest26"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest26"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest27" type="Area2D" parent="Chests"]
+position = Vector2(8, -184)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest27"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest27"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest28" type="Area2D" parent="Chests"]
+position = Vector2(152, -264)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest28"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest28"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest29" type="Area2D" parent="Chests"]
+position = Vector2(328, -136)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest29"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest29"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest30" type="Area2D" parent="Chests"]
+position = Vector2(344, -280)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest30"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest30"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest31" type="Area2D" parent="Chests"]
+position = Vector2(344, -40)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest31"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest31"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Chest19" type="Area2D" parent="Chests"]
+position = Vector2(24, 136)
+metadata/Item = &"Chest"
+
+[node name="ChestSprite" type="Sprite2D" parent="Chests/Chest19"]
+texture_filter = 1
+texture = ExtResource("3_vl3ic")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.9
+max_diameter = 1.1
+speed = 0.25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest19"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_6w3s3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="MiniBosses" type="Node" parent="."]
 
-[node name="MiniBoss" type="Sprite2D" parent="MiniBosses"]
-texture_filter = 1
+[node name="Tentacle" type="Area2D" parent="MiniBosses"]
 position = Vector2(296, -136)
-texture = ExtResource("4_kr3ds")
+metadata/Item = &"Tentacle"
 
-[node name="MiniBoss2" type="Sprite2D" parent="MiniBosses"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniBosses/Tentacle"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_s3r37")
+
+[node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle"]
 texture_filter = 1
+texture = ExtResource("4_kr3ds")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.5
+speed = 0.35
+
+[node name="Tentacle2" type="Area2D" parent="MiniBosses"]
 position = Vector2(184, 120)
-texture = ExtResource("4_kr3ds")
+metadata/Item = &"Tentacle"
 
-[node name="MiniBoss3" type="Sprite2D" parent="MiniBosses"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniBosses/Tentacle2"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_s3r37")
+
+[node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle2"]
 texture_filter = 1
+texture = ExtResource("4_kr3ds")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.5
+speed = 0.35
+
+[node name="Tentacle3" type="Area2D" parent="MiniBosses"]
 position = Vector2(-152, 88)
-texture = ExtResource("4_kr3ds")
+metadata/Item = &"Tentacle"
 
-[node name="MiniBoss4" type="Sprite2D" parent="MiniBosses"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniBosses/Tentacle3"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_s3r37")
+
+[node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle3"]
 texture_filter = 1
-position = Vector2(-168, -200)
 texture = ExtResource("4_kr3ds")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.5
+speed = 0.35
+
+[node name="Tentacle4" type="Area2D" parent="MiniBosses"]
+position = Vector2(-168, -200)
+metadata/Item = &"Tentacle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniBosses/Tentacle4"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_s3r37")
+
+[node name="TentacleSprite" type="Sprite2D" parent="MiniBosses/Tentacle4"]
+texture_filter = 1
+texture = ExtResource("4_kr3ds")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.5
+speed = 0.35
 
 [node name="SecretBoss" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -379,105 +558,309 @@ texture = ExtResource("5_gnsax")
 
 [node name="Slimes" type="Node" parent="."]
 
-[node name="Slime" type="Sprite2D" parent="Slimes"]
-texture_filter = 1
-position = Vector2(-152, -88)
-texture = ExtResource("6_s8bae")
-
-[node name="Slime2" type="Sprite2D" parent="Slimes"]
-texture_filter = 1
+[node name="Slime" type="Area2D" parent="Slimes"]
 position = Vector2(-120, -168)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime3" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime21" type="Area2D" parent="Slimes"]
 position = Vector2(-40, -200)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime4" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime21"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime21"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime22" type="Area2D" parent="Slimes"]
 position = Vector2(-40, -248)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime5" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime22"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime22"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime23" type="Area2D" parent="Slimes"]
 position = Vector2(8, -248)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime6" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime23"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime23"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime24" type="Area2D" parent="Slimes"]
 position = Vector2(88, -280)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime7" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime24"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime24"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime25" type="Area2D" parent="Slimes"]
 position = Vector2(120, -248)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime8" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime25"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime25"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime26" type="Area2D" parent="Slimes"]
 position = Vector2(184, -280)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime9" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime26"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime26"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime27" type="Area2D" parent="Slimes"]
 position = Vector2(136, -120)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime10" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime27"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime27"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime28" type="Area2D" parent="Slimes"]
 position = Vector2(216, -40)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime11" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime28"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime28"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime29" type="Area2D" parent="Slimes"]
 position = Vector2(280, -24)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime12" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime29"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime29"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime30" type="Area2D" parent="Slimes"]
 position = Vector2(360, -24)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime13" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime30"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime30"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime31" type="Area2D" parent="Slimes"]
 position = Vector2(136, -8)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime14" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime31"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime31"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime32" type="Area2D" parent="Slimes"]
 position = Vector2(136, 40)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime15" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime32"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime32"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime33" type="Area2D" parent="Slimes"]
 position = Vector2(248, 104)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime16" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime33"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime33"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime34" type="Area2D" parent="Slimes"]
 position = Vector2(264, 104)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime17" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime34"]
 texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime34"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime35" type="Area2D" parent="Slimes"]
 position = Vector2(56, 136)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime18" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime35"]
 texture_filter = 1
-position = Vector2(-24, 56)
 texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
 
-[node name="Slime19" type="Sprite2D" parent="Slimes"]
-texture_filter = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime35"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime36" type="Area2D" parent="Slimes"]
 position = Vector2(-88, 120)
-texture = ExtResource("6_s8bae")
+metadata/Item = &"Slime"
 
-[node name="Slime20" type="Sprite2D" parent="Slimes"]
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime36"]
 texture_filter = 1
-position = Vector2(-136, 8)
 texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime36"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime37" type="Area2D" parent="Slimes"]
+position = Vector2(-24, 56)
+metadata/Item = &"Slime"
+
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime37"]
+texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime37"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
+
+[node name="Slime38" type="Area2D" parent="Slimes"]
+position = Vector2(-136, 8)
+metadata/Item = &"Slime"
+
+[node name="SlimeSprite" type="Sprite2D" parent="Slimes/Slime38"]
+texture_filter = 1
+texture = ExtResource("6_s8bae")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.5
+max_diameter = 1.0
+speed = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slimes/Slime38"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_jjwhk")
 
 [node name="Torches" type="Node" parent="."]
 
@@ -643,49 +1026,217 @@ shape = SubResource("RectangleShape2D_t3ocq")
 
 [node name="Locks" type="Node" parent="."]
 
-[node name="Lock" type="Sprite2D" parent="Locks"]
-texture_filter = 1
+[node name="Lock" type="Area2D" parent="Locks"]
 position = Vector2(232, -200)
-texture = ExtResource("8_vasex")
+metadata/Item = &"Lock"
 
-[node name="Lock2" type="Sprite2D" parent="Locks"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locks/Lock"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_peyxy")
+
+[node name="LockSprite" type="Sprite2D" parent="Locks/Lock"]
 texture_filter = 1
+texture = ExtResource("8_vasex")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.1
+speed = 0.15
+
+[node name="Lock5" type="Area2D" parent="Locks"]
 position = Vector2(248, -120)
-texture = ExtResource("8_vasex")
+metadata/Item = &"Lock"
 
-[node name="Lock3" type="Sprite2D" parent="Locks"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locks/Lock5"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_peyxy")
+
+[node name="LockSprite" type="Sprite2D" parent="Locks/Lock5"]
 texture_filter = 1
+texture = ExtResource("8_vasex")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.1
+speed = 0.15
+
+[node name="Lock6" type="Area2D" parent="Locks"]
 position = Vector2(280, 104)
-texture = ExtResource("8_vasex")
+metadata/Item = &"Lock"
 
-[node name="Lock4" type="Sprite2D" parent="Locks"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locks/Lock6"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_peyxy")
+
+[node name="LockSprite" type="Sprite2D" parent="Locks/Lock6"]
 texture_filter = 1
-position = Vector2(-24, -104)
 texture = ExtResource("8_vasex")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.1
+speed = 0.15
+
+[node name="Lock7" type="Area2D" parent="Locks"]
+position = Vector2(-24, -104)
+metadata/Item = &"Lock"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locks/Lock7"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_peyxy")
+
+[node name="LockSprite" type="Sprite2D" parent="Locks/Lock7"]
+texture_filter = 1
+texture = ExtResource("8_vasex")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.1
+speed = 0.15
 
 [node name="Keys" type="Node" parent="."]
 
-[node name="Key" type="Sprite2D" parent="Keys"]
-texture_filter = 1
+[node name="Key" type="Area2D" parent="Keys"]
 position = Vector2(328, 88)
-texture = ExtResource("9_ucyg8")
+metadata/Item = &"Key"
 
-[node name="Key2" type="Sprite2D" parent="Keys"]
+[node name="KeySprite" type="Sprite2D" parent="Keys/Key"]
 texture_filter = 1
-position = Vector2(200, 120)
 texture = ExtResource("9_ucyg8")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.75
+max_diameter = 1.25
+speed = 1.1
 
-[node name="Key3" type="Sprite2D" parent="Keys"]
-texture_filter = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Keys/Key"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_0kgf8")
+
+[node name="Key5" type="Area2D" parent="Keys"]
 position = Vector2(328, -168)
-texture = ExtResource("9_ucyg8")
+metadata/Item = &"Key"
 
-[node name="Key4" type="Sprite2D" parent="Keys"]
+[node name="KeySprite" type="Sprite2D" parent="Keys/Key5"]
 texture_filter = 1
+texture = ExtResource("9_ucyg8")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.75
+max_diameter = 1.25
+speed = 1.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Keys/Key5"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_0kgf8")
+
+[node name="Key6" type="Area2D" parent="Keys"]
 position = Vector2(-136, -136)
-texture = ExtResource("9_ucyg8")
+metadata/Item = &"Key"
 
-[node name="FinalBoss" type="Sprite2D" parent="."]
+[node name="KeySprite" type="Sprite2D" parent="Keys/Key6"]
 texture_filter = 1
+texture = ExtResource("9_ucyg8")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.75
+max_diameter = 1.25
+speed = 1.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Keys/Key6"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_0kgf8")
+
+[node name="Key7" type="Area2D" parent="Keys"]
+position = Vector2(200, 120)
+metadata/Item = &"Key"
+
+[node name="KeySprite" type="Sprite2D" parent="Keys/Key7"]
+texture_filter = 1
+texture = ExtResource("9_ucyg8")
+script = ExtResource("14_1c1rw")
+min_diameter = 0.75
+max_diameter = 1.25
+speed = 1.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Keys/Key7"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_0kgf8")
+
+[node name="Priest" type="Area2D" parent="."]
 position = Vector2(280, -280)
+metadata/Item = &"Priest"
+
+[node name="PriestSprite" type="Sprite2D" parent="Priest"]
+texture_filter = 1
 texture = ExtResource("10_xpv8v")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.5
+speed = 1.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Priest"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_yuyek")
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(56, 24)
+script = ExtResource("3_l0so4")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+texture_filter = 1
+texture = ExtResource("4_ks4j5")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.1
+speed = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_ku6ly")
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 0)
+collide_with_areas = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Player"]
+scale = Vector2(2, 2)
+script = ExtResource("12_8dx61")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CanvasModulate"]
+texture = ExtResource("13_co5f4")
+script = ExtResource("14_1c1rw")
+min_diameter = 1.0
+max_diameter = 1.1
+speed = 0.25
+
+[node name="Control" type="Control" parent="Player"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 22.77
+offset_bottom = 40.0
+theme = SubResource("Theme_g5d2j")
+
+[node name="StatsLabel" type="RichTextLabel" parent="Player/Control"]
+material = SubResource("ShaderMaterial_b8ymu")
+layout_mode = 0
+offset_left = -33.0
+offset_top = 22.0
+offset_right = 199.0
+offset_bottom = 29.0
+scale = Vector2(0.3, 0.3)
+text = "HP: 10 DF: 1 Light: 0 Keys: 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_xugl4")]
+
+[node name="AlertLabel" type="RichTextLabel" parent="Player/Control"]
+material = SubResource("ShaderMaterial_b8ymu")
+layout_mode = 0
+offset_left = -33.0
+offset_top = -22.0
+offset_right = 199.0
+offset_bottom = -15.0
+scale = Vector2(0.3, 0.3)
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
