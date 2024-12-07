@@ -124,6 +124,9 @@ func move(dir):
 				else:
 					update_alert_label("[center]You need a key[/center]")
 				return
+			"Secret":
+				position = Vector2(-152,-280)
+				return
 			"Gerald":
 				return
 
