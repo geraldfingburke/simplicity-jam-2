@@ -185,6 +185,10 @@ sources/3 = SubResource("TileSetAtlasSource_625e6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuyek"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlgpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x836x"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku6ly"]
 
 [sub_resource type="Theme" id="Theme_g5d2j"]
@@ -197,10 +201,6 @@ shader = ExtResource("16_gliju")
 [sub_resource type="RichTextEffect" id="RichTextEffect_xugl4"]
 
 [sub_resource type="Theme" id="Theme_lsuae"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlgpb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x836x"]
 
 [node name="Game" type="Node2D"]
 
@@ -1174,6 +1174,37 @@ speed = 1.2
 scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_yuyek")
 
+[node name="Secret" type="Area2D" parent="."]
+position = Vector2(136, -200)
+metadata/Item = &"Secret"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Secret"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_hlgpb")
+
+[node name="Gerald" type="Area2D" parent="."]
+position = Vector2(-216, -296)
+metadata/Item = &"Gerald"
+
+[node name="GeraldSprite" type="Sprite2D" parent="Gerald"]
+texture_filter = 1
+texture = ExtResource("5_v5lr6")
+script = ExtResource("3_fmyhy")
+min_diameter = 0.1
+max_diameter = 1.5
+speed = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gerald"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_x836x")
+
+[node name="SecretRoom" type="Area2D" parent="."]
+metadata/Item = &"Wall"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SecretRoom"]
+build_mode = 1
+polygon = PackedVector2Array(96, -224, 176, -224, 176, -208, 128, -208, 128, -170, 168, -170, 168, -187, 176, -187, 176, -160, 96, -160)
+
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(56, 24)
 script = ExtResource("11_yyol0")
@@ -1198,6 +1229,7 @@ target_position = Vector2(0, 0)
 collide_with_areas = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Player"]
+z_index = 5
 scale = Vector2(2, 2)
 script = ExtResource("13_ceye7")
 
@@ -1209,6 +1241,7 @@ max_diameter = 1.1
 speed = 0.25
 
 [node name="Control" type="Control" parent="Player"]
+z_index = 10
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -1245,6 +1278,7 @@ autowrap_mode = 0
 
 [node name="GameOverScreen" type="CanvasGroup" parent="Player"]
 visible = false
+z_index = 15
 position = Vector2(-56, -24)
 
 [node name="Background" type="Sprite2D" parent="Player/GameOverScreen"]
@@ -1290,37 +1324,6 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="Player"]
-
-[node name="Secret" type="Area2D" parent="."]
-position = Vector2(136, -200)
-metadata/Item = &"Secret"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Secret"]
-scale = Vector2(0.75, 0.75)
-shape = SubResource("RectangleShape2D_hlgpb")
-
-[node name="Gerald" type="Area2D" parent="."]
-position = Vector2(-216, -296)
-metadata/Item = &"Gerald"
-
-[node name="GeraldSprite" type="Sprite2D" parent="Gerald"]
-texture_filter = 1
-texture = ExtResource("5_v5lr6")
-script = ExtResource("3_fmyhy")
-min_diameter = 0.1
-max_diameter = 1.5
-speed = 1.5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gerald"]
-scale = Vector2(0.75, 0.75)
-shape = SubResource("RectangleShape2D_x836x")
-
-[node name="SecretRoom" type="Area2D" parent="."]
-metadata/Item = &"Wall"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SecretRoom"]
-build_mode = 1
-polygon = PackedVector2Array(96, -224, 176, -224, 176, -208, 128, -208, 128, -170, 168, -170, 168, -187, 176, -187, 176, -160, 96, -160)
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_qkujs")

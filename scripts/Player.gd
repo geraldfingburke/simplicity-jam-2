@@ -4,7 +4,7 @@ extends Area2D
 @export var health_max = 10
 @export var defense = 1
 @export var torch = 0
-@export var torch_min = 10
+@export var torch_min = 20
 @export var keys = 0
 
 var slimes_killed = 0
@@ -17,6 +17,7 @@ var locks_unlocked = 0
 var secrets_found = 0
 var walls_bumped_into = 0
 var score = 0
+var steps = 0
 
 var tile_size = 16
 var inputs = {"right" : Vector2.RIGHT, "left" : Vector2.LEFT, "up" : Vector2.UP, "down" : Vector2.DOWN}
@@ -49,7 +50,7 @@ var step_fx = load("res://Sound/FX/step.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	update_alert_label("Use directional keys to move")
 
 func _unhandled_input(event):
 	if is_moving:
@@ -69,11 +70,16 @@ func move(dir):
 		var tween = create_tween()
 		tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/move_speed).set_trans(Tween.TRANS_SINE)
 		is_moving = true
+		steps += 1
 		play_sfx(step_fx)
 		await tween.finished
 		is_moving = false
 		update_light()
 		update_stats_label()
+		if torches_collected > 0 and steps == 1:
+			update_alert_label("[center]Kill the priest[/center]")
+		elif torches_collected > 0 and steps == 2:
+			update_alert_label("[center]Do not die[/center]")
 	else:
 		var object = ray.get_collider()
 		match object.get_meta("Item"):
@@ -81,7 +87,10 @@ func move(dir):
 				pickup_torch()
 				play_sfx(pickup_torch_fx)
 				object.queue_free()
-				update_alert_label("[center]You found a torch[/center]")
+				if torches_collected == 0:
+					update_alert_label("[center]Torches light your way[/center]")
+				else:
+					update_alert_label("[center]You found a torch[/center]")
 				torches_collected += 1
 				return
 			"Wall":
@@ -93,7 +102,7 @@ func move(dir):
 				play_sfx(hit_fx)
 				battle(5)
 				object.queue_free()
-				update_stats_label() 
+				update_stats_label()
 				slimes_killed += 1
 				return
 			"Tentacle":
